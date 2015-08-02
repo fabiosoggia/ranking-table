@@ -1,0 +1,157 @@
+html {
+	background-color: #3c3c43;
+	color: #f1f0f0;
+	font-family: 'Lato';
+	border-bottom: .5em solid #ef5858;
+}
+
+p, ol {
+	line-height: 1.5em;
+	text-align: justify;
+}
+
+strong {
+	color: #ef5858;
+}
+
+#header {
+	/*background-image: url('../img/field.jpg');*/
+	background-size: cover;
+	background-position: 50%;
+	padding: 3em 0;
+	/*background-attachment: fixed;*/
+	background-color: #ef5858;
+	/*position: fixed;*/
+	width: 100%;
+	top: 0;
+	z-index: -1;
+    border-bottom: .5em double #3C3C43;
+}
+
+#header h1 {
+	text-align: center;
+	margin: 0;
+}
+
+#content {
+	margin: 0 auto;
+	width: 100%;
+	max-width: 600px;
+	padding: 1.5em;
+	background-color: #3C3C43;
+	/*margin-top: 7em;*/
+	/*z-index: 1;*/
+	box-sizing: border-box;
+}
+
+.updateInterval {
+	background-color: #28282F;
+	border: 0;
+	max-width: 40px;
+	padding-left: 4px;
+}
+
+.ranking-table {
+	padding: 0;
+	width: 100%;
+}
+
+.ranking-table thead tr {
+	background-color: #ef5858;
+}
+
+.ranking-table tr {
+	background-color: #313138;
+	list-style: none;
+	padding: 0 10px;
+	line-height: 40px;
+	text-align: center;
+}
+
+.ranking-table tbody tr:first-child {
+	background-color: #2A2A31;
+	border-width: 10px 20px;
+	border-style: solid;
+	border-color: #2A2A31;
+}
+
+.ranking-table tbody tr {
+    -webkit-animation-name: blink; /* Chrome, Safari, Opera */
+    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
+    animation-name: blink;
+    animation-duration: .5s;
+    animation-iteration-count: 1;
+}
+
+.ranking-table tbody .fa-caret-down {
+	color: #ef5858;
+}
+
+.ranking-table tbody .fa-caret-up {
+	color: #58EFA3;
+}
+
+/* Chrome, Safari, Opera */
+@-webkit-keyframes blink {
+    50% {
+    	background-color: #1D1D23;
+    	border-color: #1D1D23;
+    }
+}
+
+/* Standard syntax */
+@keyframes blink {
+    50% {
+    	background-color: #1D1D23;
+    	border-color: #1D1D23;
+    }
+}
+
+.flag {
+	width: 30px;
+	vertical-align: middle;
+}
+
+.team-filter {
+	background-color: #313138;
+	padding: 5px;
+	display: block;
+	float: right;
+	width: 60%;
+	position: relative;
+}
+
+.search {
+	background-color: #28282F;
+	padding: 4px;
+}
+
+.search i {
+	width: 12%;
+	text-align: center;
+	float: left;
+	line-height: 1.5em;
+}
+
+.team-filter input {
+	margin: 0;
+	border: 0;
+	padding: 0;
+    width: 88%;
+    text-align: left;
+	background-color: #28282F;
+	line-height: 1.5em;
+}
+
+.team-filter input:focus {
+	outline: 0;
+}
+
+
+#footer {
+	background-color: #313138;
+    line-height: 3em;
+    text-align: center;
+    border-top: .5em double #3C3C43;
+    font-size: smaller;
+}

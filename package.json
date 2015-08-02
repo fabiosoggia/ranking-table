@@ -1,0 +1,12 @@
+{
+	"name": "PulseBall",
+	"version": "0.0.1",
+	"author": "Fabio Soggia",
+	"devDependencies": {
+		"grunt": "^0.4.5",
+		"grunt-contrib-jshint": "^0.10.0",
+		"grunt-contrib-qunit": "^0.7.0",
+		"grunt-contrib-uglify": "^0.6.0",
+		"grunt-newer": "^0.8.0"
+	}
+}
