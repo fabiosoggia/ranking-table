@@ -1,3 +1,11 @@
+/*
+	Q: Why aren't there media queries in this css?
+	R: The styled page is really simple and it's natively responsive.
+ */
+
+/**
+ * Generic styles.
+ */
 html {
 	background-color: #3c3c43;
 	color: #f1f0f0;
@@ -14,17 +22,14 @@ strong {
 	color: #ef5858;
 }
 
+
+/**
+ * Header of the web page.
+ */
 #header {
-	/*background-image: url('../img/field.jpg');*/
-	background-size: cover;
-	background-position: 50%;
 	padding: 3em 0;
-	/*background-attachment: fixed;*/
 	background-color: #ef5858;
-	/*position: fixed;*/
 	width: 100%;
-	top: 0;
-	z-index: -1;
     border-bottom: .5em double #3C3C43;
 }
 
@@ -33,14 +38,15 @@ strong {
 	margin: 0;
 }
 
-#content {
+/**
+ * Page content.
+ */
+#content article > section {
 	margin: 0 auto;
 	width: 100%;
 	max-width: 600px;
 	padding: 1.5em;
 	background-color: #3C3C43;
-	/*margin-top: 7em;*/
-	/*z-index: 1;*/
 	box-sizing: border-box;
 }
 
@@ -51,17 +57,16 @@ strong {
 	padding-left: 4px;
 }
 
+/**
+ * Ranking table style.
+ */
 .ranking-table {
 	padding: 0;
 	width: 100%;
-}
-
-.ranking-table thead tr {
-	background-color: #ef5858;
+	background-color: #313138;
 }
 
 .ranking-table tr {
-	background-color: #313138;
 	list-style: none;
 	padding: 0 10px;
 	line-height: 40px;
@@ -69,20 +74,59 @@ strong {
 }
 
 .ranking-table tbody tr:first-child {
+	/* Keep the same color */
+	border-color: #2A2A31;
 	background-color: #2A2A31;
 	border-width: 10px 20px;
 	border-style: solid;
-	border-color: #2A2A31;
 }
 
+.ranking-table thead tr {
+	background-color: #ef5858;
+}
+
+/**
+ * Animate the update operation.
+ */
 .ranking-table tbody tr {
-    -webkit-animation-name: blink; /* Chrome, Safari, Opera */
-    -webkit-animation-duration: 4s; /* Chrome, Safari, Opera */
-    animation-name: blink;
-    animation-duration: .5s;
-    animation-iteration-count: 1;
+	/* @keyframes name | duration | iteration-count */
+	-webkit-animation: blink .5s 1;
+	-moz-animation: blink .5s 1;
+	-o-animation: blink .5s 1;
+	animation: blink .5s 1;
 }
 
+@-webkit-keyframes blink {
+    50% {
+    	background-color: #1D1D23;
+    	border-color: #1D1D23;
+    }
+}
+
+@-moz-keyframes blink {
+    50% {
+    	background-color: #1D1D23;
+    	border-color: #1D1D23;
+    }
+}
+
+@-o-keyframes blink {
+    50% {
+    	background-color: #1D1D23;
+    	border-color: #1D1D23;
+    }
+}
+
+@keyframes blink {
+    50% {
+    	background-color: #1D1D23;
+    	border-color: #1D1D23;
+    }
+}
+
+/**
+ * Up/Down pin caret color.
+ */
 .ranking-table tbody .fa-caret-down {
 	color: #ef5858;
 }
@@ -91,63 +135,53 @@ strong {
 	color: #58EFA3;
 }
 
-/* Chrome, Safari, Opera */
-@-webkit-keyframes blink {
-    50% {
-    	background-color: #1D1D23;
-    	border-color: #1D1D23;
-    }
-}
-
-/* Standard syntax */
-@keyframes blink {
-    50% {
-    	background-color: #1D1D23;
-    	border-color: #1D1D23;
-    }
-}
-
 .flag {
 	width: 30px;
 	vertical-align: middle;
 }
 
-.team-filter {
+/**
+ * Filter teams in the table.
+ */
+.search-form {
 	background-color: #313138;
-	padding: 5px;
+	padding: 4px;
 	display: block;
 	float: right;
 	width: 60%;
 	position: relative;
 }
 
-.search {
-	background-color: #28282F;
-	padding: 4px;
-}
-
-.search i {
+.search-icon {
 	width: 12%;
 	text-align: center;
 	float: left;
 	line-height: 1.5em;
 }
 
-.team-filter input {
+.search-field {
+	background-color: #28282F;
+	display: block;
+	padding: 4px;
+}
+
+.search-field input:focus {
+	outline: 0;
+}
+
+.search-field input {
 	margin: 0;
 	border: 0;
 	padding: 0;
     width: 88%;
     text-align: left;
-	background-color: #28282F;
+	background-color: transparent;
 	line-height: 1.5em;
 }
 
-.team-filter input:focus {
-	outline: 0;
-}
-
-
+/**
+ * The footer of the page.
+ */
 #footer {
 	background-color: #313138;
     line-height: 3em;

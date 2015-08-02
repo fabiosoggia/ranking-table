@@ -17,68 +17,79 @@
 	<link rel="stylesheet" href="css/style.css" />
 </head>
 <body>
-	<header id="header">
-		<h1>The Game of Pulseball</h1>
-	</header>
-	<main id="content">
-		<h2>Introduction</h2>
-		<p>In the international game of <strong>Pulseball</strong>, various series and tournaments contribute to the overall ranking of the teams. Some games are played at home, some games are played away and some games (especially those at the tournament level) are played on neutral ground.</p>
+	<main role="main" id="content">
+		<article>
+			<!-- Actually this is not the header of a website, but the header of this article -->
+			<header id="header">
+				<h1>The Game of Pulseball</h1>
+			</header>
 
-		<h2>Points calculation</h2>
-		<p>To calculate the number of points earned or lost by each team after a game, we first subtract the second team's rating from the first's. To suppress the advantage playing at home might give for the home team, its rating is temporarily increased by 3 points when performing the calculations.</p>
-		<p>If the rating points difference is greater than 10, then it is capped at 10. If the rating points difference is lower than -10, then it is capped at -10.</p>
-		<ol>
-			<li>If the first team wins, then it gains 1 - ( rating difference / 10 ) points and the opposing team's rating loses the same amount;</li>
-			<li>if the first team loses, then it loses 1 + ( rating difference / 10 ) points and the opposing team's rating wins the same amount;</li>
-			<li>In the case of a draw, each team loses or wins the points calculated by dividing the rating difference by 10.</li>
-		</ol>
-		<p>When the rankings are updated the new rankings table is used to calculate the ratings points difference. This way it is possible to predict the results of several matches and see how the rankings would be updated.</p>
+			<section>
+				<h2>Introduction</h2>
+				<p>In the international game of <strong>Pulseball</strong>, various series and tournaments contribute to the overall ranking of the teams. Some games are played at home, some games are played away and some games (especially those at the tournament level) are played on neutral ground.</p>
+			</section>
 
-		<div ng-controller="RankingsTableController">
-			<h2>Ranking Table Implementation</h2>
-			<p>This is my implementation of a rankings predictor web application. Matches are randomly chosen, without any criterion. A new match is executed every <input class="updateInterval" ng-model="table.updateInterval" type="number" min="1"> seconds. You can filter the table using the "Search..." field.</p>
+			<section>
+				<h2>Points calculation</h2>
+				<p>To calculate the number of points earned or lost by each team after a game, we first subtract the second team's rating from the first's. To suppress the advantage playing at home might give for the home team, its rating is temporarily increased by 3 points when performing the calculations.</p>
+				<p>If the rating points difference is greater than 10, then it is capped at 10. If the rating points difference is lower than -10, then it is capped at -10.</p>
+				<ol>
+					<li>If the first team wins, then it gains 1 - ( rating difference / 10 ) points and the opposing team's rating loses the same amount;</li>
+					<li>if the first team loses, then it loses 1 + ( rating difference / 10 ) points and the opposing team's rating wins the same amount;</li>
+					<li>In the case of a draw, each team loses or wins the points calculated by dividing the rating difference by 10.</li>
+				</ol>
+				<p>When the rankings are updated the new rankings table is used to calculate the ratings points difference. This way it is possible to predict the results of several matches and see how the rankings would be updated.</p>
+			</section>
 
-			<label class="team-filter">
-				<div class="search">
-					<i class="fa fa-search"></i>
-					<input placeholder="Search..." ng-model="searchText">
-				</div>
-			</label>
-			<table class="ranking-table">
-				<thead>
-					<tr>
-						<th>Rank</th>
-						<th>Flag</th>
-						<th>Team</th>
-						<th>Total Points</th>
-						<th>Prev. Points</th>
-						<th>
-							<i class="fa fa-caret-up"></i>
-							/
-							<i class="fa fa-caret-down"></i>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr ng-repeat="row in table.results | filter:searchText">
-						<td>{{ row.pos }}</td>
-						<td>
-							<img class="flag" ng-src="http://img.fifa.com/images/flags/4/{{ row.team.abbreviation }}.png" alt="{{ row.team.name }} (flag)">
-						</td>
-						<td>{{ row.team.name }}</td>
-						<td>{{ row.pts.toFixed(2) }}</td>
-						<td>{{ row.oldPts.toFixed(2) }}</td>
-						<td>
-							<i ng-if="row.pos < row.oldPos" class="fa fa-caret-up"></i>
-							<i ng-if="row.pos > row.oldPos" class="fa fa-caret-down"></i>
-							<i ng-if="row.pos == row.oldPos" class="fa fa-caret-left"></i>
-							<i ng-if="row.pos == row.oldPos" class="fa fa-caret-right"></i>
-						</td>
-					</tr>
-				</tbody>
-			</table>
-			<p>Match performed: <strong>{{ table.matchCount }}</strong>. Last match: <strong>{{ table.lastMatch.teams[0].name }}</strong> vs <strong>{{ table.lastMatch.teams[1].name }}</strong>.</p>
-		</div>
+			<section ng-controller="RankingsTableController">
+				<h2>Ranking Table Implementation</h2>
+				<p>This is my implementation of a rankings predictor web application. Matches are randomly chosen, without any criterion. A new match is executed every <input class="updateInterval" ng-model="table.updateInterval" type="number" min="1"> seconds. You can filter the table using the "Search..." field.</p>
+
+				<form class="search-form">
+					<label class="search-field">
+						<i class="fa fa-search search-icon"></i>
+						<input placeholder="Search..." ng-model="searchText">
+					</label>
+				</form>
+
+				<table class="ranking-table">
+					<thead>
+						<tr>
+							<th>Rank</th>
+							<th>Flag</th>
+							<th>Team</th>
+							<th>Total Points</th>
+							<th>Prev. Points</th>
+							<th>
+								<i class="fa fa-caret-up"></i>
+								/
+								<i class="fa fa-caret-down"></i>
+							</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="row in table.results | filter:searchText">
+							<td>{{ row.pos }}</td>
+							<td>
+								<img class="flag" ng-src="http://img.fifa.com/images/flags/4/{{ row.team.abbreviation }}.png" alt="{{ row.team.name }} (flag)">
+							</td>
+							<td>{{ row.team.name }}</td>
+							<td>{{ row.pts.toFixed(2) }}</td>
+							<td>{{ row.oldPts.toFixed(2) }}</td>
+							<td>
+								<i ng-if="row.pos < row.oldPos" class="fa fa-caret-up"></i>
+								<i ng-if="row.pos > row.oldPos" class="fa fa-caret-down"></i>
+								<i ng-if="row.pos == row.oldPos" class="fa fa-caret-left"></i>
+								<i ng-if="row.pos == row.oldPos" class="fa fa-caret-right"></i>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+
+				<p>Match performed: <strong>{{ table.matchCount }}</strong>. Last match: <strong>{{ table.lastMatch.teams[0].name }}</strong> vs <strong>{{ table.lastMatch.teams[1].name }}</strong>.</p>
+			</section>
+
+		</article>
 	</main>
 	<footer id="footer">Fabio Soggia</footer>
 
