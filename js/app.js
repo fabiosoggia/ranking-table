@@ -94,4 +94,8 @@ app.factory("FakeMatchUpdater", function($timeout) {
 
 app.controller("RankingsTableController", ["$scope", "FakeMatchUpdater", function ($scope, matches) {
 	$scope.table = matches;
+	$scope.stop = function () {
+		alert("I am sorry. No one can stop Pulseball players.\nThe SPORT must go on.");
+		return false;
+	};
 }]);

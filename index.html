@@ -32,7 +32,7 @@
 
 			<section ng-controller="RankingsTableController">
 				<h2>Ranking Table Implementation</h2>
-				<p>This is my implementation of a rankings predictor web application. Matches are randomly chosen, without any criterion. A new match is executed every <input class="updateInterval" ng-model="table.updateInterval" type="number" min="1"> seconds. You can filter the table using the "Search..." field.</p>
+				<p>This is my implementation of a rankings predictor web application. Matches are randomly chosen, without any criterion. A new match is executed every <input class="updateInterval" ng-model="table.updateInterval" type="number" min="1"> seconds. You can filter the table using the "Search..." field. Or you can <input ng-click="stop()" type="submit" value="click here"> to stop the matches.</p>
 
 				<form class="search-form">
 					<label class="search-field">
