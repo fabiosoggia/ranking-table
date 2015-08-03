@@ -2,190 +2,186 @@
 	Q: Why aren't there media queries in this css?
 	R: The styled page is really simple and it's natively responsive.
  */
-
 /**
  * Generic styles.
  */
 html {
-	background-color: #3c3c43;
-	color: #f1f0f0;
-	font-family: 'Lato';
-	border-bottom: .5em solid #ef5858;
+  background-color: #3c3c43;
+  color: #f1f0f0;
+  font-family: 'Lato';
+  border-bottom: 0.5em solid #ef5858;
 }
-
-p, ol {
-	line-height: 1.5em;
-	text-align: justify;
+p,
+ol {
+  line-height: 1.5em;
+  text-align: justify;
+  text-rendering: optimizeLegibility;
 }
-
 strong {
-	color: #ef5858;
+  color: #ef5858;
 }
-
-
+input[type=submit] {
+  background-color: #ef5858;
+  border: 0;
+  /*color: #3c3c43;*/
+}
 /**
  * Header of the web page.
  */
 #header {
-	padding: 3em 0;
-	background-color: #ef5858;
-	width: 100%;
-    border-bottom: .5em double #3C3C43;
+  padding: 3em 0;
+  background-color: #ef5858;
+  width: 100%;
+  border-bottom: 0.5em double #3c3c43;
+  text-align: center;
 }
-
 #header h1 {
-	text-align: center;
-	margin: 0;
+  font-family: "Ostrich Sans";
+  text-rendering: geometricPrecision;
+  /* Fix Ostrich Sans bad vertical align. */
+  margin: .25em 0 0;
+  font-size: 5em;
+  color: #f1f0f0;
 }
-
+hr {
+  -moz-box-sizing: content-box;
+  box-sizing: content-box;
+  height: 0;
+  /* background-color: transparent; */
+  height: 2px;
+  border: 0;
+  background-image: url(../img/field.jpg);
+  background-size: cover;
+  background-attachment: fixed;
+}
 /**
  * Page content.
  */
 #content article > section {
-	margin: 0 auto;
-	width: 100%;
-	max-width: 600px;
-	padding: 1.5em;
-	background-color: #3C3C43;
-	box-sizing: border-box;
+  margin: 0 auto;
+  width: 100%;
+  max-width: 600px;
+  padding: 1.5em;
+  box-sizing: border-box;
 }
-
 .updateInterval {
-	background-color: #28282F;
-	border: 0;
-	max-width: 40px;
-	padding-left: 4px;
+  background-color: #2b2b32;
+  border: 0;
+  max-width: 40px;
+  padding-left: 4px;
 }
-
 /**
  * Ranking table style.
  */
 .ranking-table {
-	padding: 0;
-	width: 100%;
-	background-color: #313138;
+  padding: 0;
+  width: 100%;
+  background-color: #33333a;
 }
-
 .ranking-table tr {
-	list-style: none;
-	padding: 0 10px;
-	line-height: 40px;
-	text-align: center;
+  list-style: none;
+  padding: 0 10px;
+  line-height: 40px;
+  text-align: center;
 }
-
 .ranking-table tbody tr:first-child {
-	/* Keep the same color */
-	border-color: #2A2A31;
-	background-color: #2A2A31;
-	border-width: 10px 20px;
-	border-style: solid;
+  /* Keep the same color */
+  border-color: #2a2a31;
+  background-color: #2a2a31;
+  border-width: 10px 20px;
+  border-style: solid;
 }
-
 .ranking-table thead tr {
-	background-color: #ef5858;
+  background-color: #ef5858;
 }
-
 /**
  * Animate the update operation.
  */
 .ranking-table tbody tr {
-	/* @keyframes name | duration | iteration-count */
-	-webkit-animation: blink .5s 1;
-	-moz-animation: blink .5s 1;
-	-o-animation: blink .5s 1;
-	animation: blink .5s 1;
+  /* @keyframes name | duration | iteration-count */
+  -webkit-animation: blink .5s 1;
+  -moz-animation: blink .5s 1;
+  -o-animation: blink .5s 1;
+  animation: blink .5s 1;
 }
-
 @-webkit-keyframes blink {
-    50% {
-    	background-color: #1D1D23;
-    	border-color: #1D1D23;
-    }
+  50% {
+    background-color: #26262d;
+    border-color: #26262d;
+  }
 }
-
 @-moz-keyframes blink {
-    50% {
-    	background-color: #1D1D23;
-    	border-color: #1D1D23;
-    }
+  50% {
+    background-color: #26262d;
+    border-color: #26262d;
+  }
 }
-
 @-o-keyframes blink {
-    50% {
-    	background-color: #1D1D23;
-    	border-color: #1D1D23;
-    }
+  50% {
+    background-color: #26262d;
+    border-color: #26262d;
+  }
 }
-
 @keyframes blink {
-    50% {
-    	background-color: #1D1D23;
-    	border-color: #1D1D23;
-    }
+  50% {
+    background-color: #26262d;
+    border-color: #26262d;
+  }
 }
-
 /**
  * Up/Down pin caret color.
  */
 .ranking-table tbody .fa-caret-down {
-	color: #ef5858;
+  color: #ef5858;
 }
-
 .ranking-table tbody .fa-caret-up {
-	color: #58EFA3;
+  color: #58EFA3;
 }
-
 .flag {
-	width: 30px;
-	vertical-align: middle;
+  width: 30px;
+  vertical-align: middle;
 }
-
 /**
  * Filter teams in the table.
  */
 .search-form {
-	background-color: #313138;
-	padding: 4px;
-	display: block;
-	float: right;
-	width: 60%;
-	position: relative;
+  background-color: #33333a;
+  padding: 4px;
+  display: block;
+  float: right;
+  width: 60%;
+  position: relative;
 }
-
 .search-icon {
-	width: 12%;
-	text-align: center;
-	float: left;
-	line-height: 1.5em;
+  width: 12%;
+  text-align: center;
+  float: left;
+  line-height: 1.5em;
 }
-
 .search-field {
-	background-color: #28282F;
-	display: block;
-	padding: 4px;
+  background-color: #2b2b32;
+  display: block;
+  padding: 4px;
 }
-
 .search-field input:focus {
-	outline: 0;
+  outline: 0;
 }
-
 .search-field input {
-	margin: 0;
-	border: 0;
-	padding: 0;
-    width: 88%;
-    text-align: left;
-	background-color: transparent;
-	line-height: 1.5em;
+  margin: 0;
+  border: 0;
+  padding: 0;
+  width: 88%;
+  text-align: left;
+  background-color: transparent;
+  line-height: 1.5em;
 }
-
 /**
  * The footer of the page.
  */
 #footer {
-	background-color: #313138;
-    line-height: 3em;
-    text-align: center;
-    border-top: .5em double #3C3C43;
-    font-size: smaller;
+  background-color: #33333a;
+  line-height: 3em;
+  text-align: center;
+  border-top: 0.5em double #3c3c43;
+  font-size: smaller;
 }
