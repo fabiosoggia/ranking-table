@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>JSDoc: Namespace: PULSEBALL</title>
+    <title>JSDoc: Namespace: RatingCalculator</title>
 
     <script src="scripts/prettify/prettify.js"> </script>
     <script src="scripts/prettify/lang-css.js"> </script>
@@ -17,7 +17,7 @@
 
 <div id="main">
 
-    <h1 class="page-title">Namespace: PULSEBALL</h1>
+    <h1 class="page-title">Namespace: RatingCalculator</h1>
 
     
 
@@ -29,7 +29,7 @@
 <header>
     
         <h2>
-        PULSEBALL
+        RatingCalculator
         </h2>
         
     
@@ -38,6 +38,8 @@
 <article>
     <div class="container-overview">
     
+        
+            <div class="description">This namespace encapsulates the Pulseball ranking logic.</div>
         
 
         
@@ -72,7 +74,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="pulseball.js.html">pulseball.js</a>, <a href="pulseball.js.html#line250">line 250</a>
+        <a href="pulseball.js.html">pulseball.js</a>, <a href="pulseball.js.html#line155">line 155</a>
     </li></ul></dd>
     
 
@@ -99,6 +101,226 @@
     
 
     
+        <h3 class="subsection-title">Members</h3>
+
+        
+            
+<h4 class="name" id=".FIRST_TEAM_HOME"><span class="type-signature">(static) </span>FIRST_TEAM_HOME<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    Used to indicate a match performed in the first team home.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pulseball.js.html">pulseball.js</a>, <a href="pulseball.js.html#line171">line 171</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".NEUTRAL_GROUND"><span class="type-signature">(static) </span>NEUTRAL_GROUND<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    Used to indicate a match performed in a neutral ground.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pulseball.js.html">pulseball.js</a>, <a href="pulseball.js.html#line165">line 165</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+            
+<h4 class="name" id=".SECOND_TEAM_HOME"><span class="type-signature">(static) </span>SECOND_TEAM_HOME<span class="type-signature"> :Number</span></h4>
+
+
+
+
+<div class="description">
+    Used to indicate a match performed in the second team home.
+</div>
+
+
+
+    <h5>Type:</h5>
+    <ul>
+        <li>
+            
+<span class="param-type">Number</span>
+
+
+        </li>
+    </ul>
+
+
+
+
+
+<dl class="details">
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+
+    
+    <dt class="tag-source">Source:</dt>
+    <dd class="tag-source"><ul class="dummy"><li>
+        <a href="pulseball.js.html">pulseball.js</a>, <a href="pulseball.js.html#line177">line 177</a>
+    </li></ul></dd>
+    
+
+    
+
+    
+
+    
+</dl>
+
+
+
+
+
+
+        
+    
 
     
         <h3 class="subsection-title">Methods</h3>
@@ -108,14 +330,14 @@
 
     
 
-    <h4 class="name" id=".addMatch"><span class="type-signature">(static) </span>addMatch<span class="signature">(match)</span><span class="type-signature"></span></h4>
+    <h4 class="name" id=".computeGainedPoints"><span class="type-signature">(static) </span>computeGainedPoints<span class="signature">(outcome, ratingDiff)</span><span class="type-signature"> &rarr; {Array}</span></h4>
 
     
 
 
 
 <div class="description">
-    Update the rankings table with the results of a match.
+    Compute the points gained (or losed) after a match.
 </div>
 
 
@@ -151,13 +373,13 @@
 
         <tr>
             
-                <td class="name"><code>match</code></td>
+                <td class="name"><code>outcome</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">String</span>
 
 
             
@@ -167,7 +389,30 @@
 
             
 
-            <td class="description last">a valid json representation of a match</td>
+            <td class="description last">the outcome of the match ("A" > team 1 win, "B" > team 1 win, "D" > draw)</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>ratingDiff</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">computed rating diff for the two teams</td>
         </tr>
 
     
@@ -208,292 +453,7 @@
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="pulseball.js.html">pulseball.js</a>, <a href="pulseball.js.html#line319">line 319</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id=".init"><span class="type-signature">(static) </span>init<span class="signature">(rankingsJson)</span><span class="type-signature"></span></h4>
-
-    
-
-
-
-<div class="description">
-    Init a rankings table.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>rankingsJson</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last">a valid json representation of a rankings table</td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="pulseball.js.html">pulseball.js</a>, <a href="pulseball.js.html#line311">line 311</a>
-    </li></ul></dd>
-    
-
-    
-
-    
-
-    
-</dl>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        
-            
-
-    
-
-    <h4 class="name" id=".isHomeOfTeam"><span class="type-signature">(private, static) </span>isHomeOfTeam<span class="signature">(team, place)</span><span class="type-signature"> &rarr; {Boolean}</span></h4>
-
-    
-
-
-
-<div class="description">
-    This method return true if the place is the home of the specified team.
-</div>
-
-
-
-
-
-
-
-
-
-    <h5>Parameters:</h5>
-    
-
-<table class="params">
-    <thead>
-    <tr>
-        
-        <th>Name</th>
-        
-
-        <th>Type</th>
-
-        
-
-        
-
-        <th class="last">Description</th>
-    </tr>
-    </thead>
-
-    <tbody>
-    
-
-        <tr>
-            
-                <td class="name"><code>team</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-
-        <tr>
-            
-                <td class="name"><code>place</code></td>
-            
-
-            <td class="type">
-            
-                
-<span class="param-type">Object</span>
-
-
-            
-            </td>
-
-            
-
-            
-
-            <td class="description last"></td>
-        </tr>
-
-    
-    </tbody>
-</table>
-
-
-
-
-
-
-<dl class="details">
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-
-    
-    <dt class="tag-source">Source:</dt>
-    <dd class="tag-source"><ul class="dummy"><li>
-        <a href="pulseball.js.html">pulseball.js</a>, <a href="pulseball.js.html#line264">line 264</a>
+        <a href="pulseball.js.html">pulseball.js</a>, <a href="pulseball.js.html#line220">line 220</a>
     </li></ul></dd>
     
 
@@ -519,6 +479,10 @@
 <h5>Returns:</h5>
 
         
+<div class="param-desc">
+    an array of two elements [firstTeamGainedPoints, secondTeamGainedPoints]
+</div>
+
 
 
 <dl>
@@ -527,7 +491,7 @@
     </dt>
     <dd>
         
-<span class="param-type">Boolean</span>
+<span class="param-type">Array</span>
 
 
     </dd>
@@ -542,15 +506,14 @@
 
     
 
-    <h4 class="name" id=".predict"><span class="type-signature">(private, static) </span>predict<span class="signature">(table, match)</span><span class="type-signature"> &rarr; {<a href="RankingsTable.html">RankingsTable</a>}</span></h4>
+    <h4 class="name" id=".computeRatingDiff"><span class="type-signature">(static) </span>computeRatingDiff<span class="signature">(firstTeamRating, secondTeamRating, venue)</span><span class="type-signature"> &rarr; {Number}</span></h4>
 
     
 
 
 
 <div class="description">
-    Predict the match rating using the data i "table" and "match" and update
-table with the results.
+    Compute the rating diff used.
 </div>
 
 
@@ -586,13 +549,13 @@ table with the results.
 
         <tr>
             
-                <td class="name"><code>table</code></td>
+                <td class="name"><code>firstTeamRating</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type"><a href="RankingsTable.html">RankingsTable</a></span>
+<span class="param-type">Number</span>
 
 
             
@@ -602,20 +565,20 @@ table with the results.
 
             
 
-            <td class="description last">this table is updated at the end of the process</td>
+            <td class="description last">the current rating of the first team</td>
         </tr>
 
     
 
         <tr>
             
-                <td class="name"><code>match</code></td>
+                <td class="name"><code>secondTeamRating</code></td>
             
 
             <td class="type">
             
                 
-<span class="param-type">Object</span>
+<span class="param-type">Number</span>
 
 
             
@@ -625,7 +588,30 @@ table with the results.
 
             
 
-            <td class="description last"></td>
+            <td class="description last">the current rating of the second team</td>
+        </tr>
+
+    
+
+        <tr>
+            
+                <td class="name"><code>venue</code></td>
+            
+
+            <td class="type">
+            
+                
+<span class="param-type">Number</span>
+
+
+            
+            </td>
+
+            
+
+            
+
+            <td class="description last">the match ground location</td>
         </tr>
 
     
@@ -666,7 +652,7 @@ table with the results.
     
     <dt class="tag-source">Source:</dt>
     <dd class="tag-source"><ul class="dummy"><li>
-        <a href="pulseball.js.html">pulseball.js</a>, <a href="pulseball.js.html#line280">line 280</a>
+        <a href="pulseball.js.html">pulseball.js</a>, <a href="pulseball.js.html#line186">line 186</a>
     </li></ul></dd>
     
 
@@ -700,7 +686,7 @@ table with the results.
     </dt>
     <dd>
         
-<span class="param-type"><a href="RankingsTable.html">RankingsTable</a></span>
+<span class="param-type">Number</span>
 
 
     </dd>
