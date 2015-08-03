@@ -1,4 +1,4 @@
-var app = angular.module("PulseBallApp", []);
+var app = angular.module("PulseballApp", []);
 
 app.factory("FakeMatchUpdater", function($timeout) {
 	var data = {
