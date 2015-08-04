@@ -26,7 +26,7 @@ QUnit.test("RatingCalculator.computeRatingDiff()", function(assert) {
 
 	assert.equal(
 			RatingCalculator.computeRatingDiff(10, 10, RatingCalculator.SECOND_TEAM_HOME),
-			3,
+			-3,
 			"Ratings (10, 10, SECOND_TEAM_HOME)"
 		);
 
@@ -77,13 +77,13 @@ QUnit.test("RatingCalculator.computeGainedPoints()", function(assert) {
 	assert.deepEqual(
 			RatingCalculator.computeGainedPoints(RatingCalculator.OUTCOME_TEAM_ONE_WIN, 10)[1],
 			-(1 - (10 / 10)),
-			"(Team 1) If the first team wins, the opposing team’s rating loses 1 - ( rating difference / 10 )"
+			"(Team 2) If the first team wins, the opposing team’s rating loses 1 - ( rating difference / 10 )"
 		);
 
 	assert.deepEqual(
-			RatingCalculator.computeGainedPoints(RatingCalculator.OUTCOME_TEAM_TWO_WIN, 10)[0],
+			RatingCalculator.computeGainedPoints(RatingCalculator.OUTCOME_TEAM_TWO_WIN, 10)[1],
 			(1 + (10 / 10)),
-			"(Team 1) if the first team loses, then it loses 1 + ( rating difference / 10 )"
+			"(Team 2) if the first team loses, the opposing team’s rating wins 1 + ( rating difference / 10 )"
 		);
 
 });
