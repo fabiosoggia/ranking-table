@@ -1,6 +1,6 @@
 var app = angular.module("PulseballApp", []);
 
-app.factory("FakeMatchUpdater", function($timeout) {
+app.factory("FakeMatchUpdater", ["$timeout", function($timeout) {
 	var data = {
 		results: [],
 		updateInterval: 2,
@@ -89,7 +89,7 @@ app.factory("FakeMatchUpdater", function($timeout) {
 	update();
 
 	return data;
-});
+}]);
 
 
 app.controller("RankingsTableController", ["$scope", "FakeMatchUpdater", function ($scope, matches) {

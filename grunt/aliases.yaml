@@ -1,0 +1,9 @@
+default:
+    - 'newer:concat'
+    - 'newer:uglify'
+    - 'newer:imagemin'
+    - 'processhtml:all'
+    - 'cssmin:all'
+    - 'copy:all'
+test:
+    - 'qunit:all'
