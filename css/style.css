@@ -139,8 +139,10 @@ hr {
   color: #58EFA3;
 }
 .flag {
+  height: 20px;
   width: 30px;
   vertical-align: middle;
+  background: #ef5858;
 }
 /**
  * Filter teams in the table.
