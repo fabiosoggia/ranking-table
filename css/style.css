@@ -69,6 +69,7 @@ hr {
   border: 0;
   max-width: 40px;
   padding-left: 4px;
+  text-align: center;
 }
 /**
  * Ranking table style.
