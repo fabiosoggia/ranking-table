@@ -153,7 +153,7 @@ RankingsTable.prototype.setTeamPts = function(teamId, teamPts) {
 
 
 /**
- * This namespace encapsulates the Pulseball ranking logic.
+ * This namespace encapsulates the Flyball ranking logic.
  * @namespace RatingCalculator
  */
 var RatingCalculator = {};
@@ -184,6 +184,8 @@ RatingCalculator.SECOND_TEAM_HOME = 2;
  * @return {Number}
  */
 RatingCalculator.computeRatingDiff = function (firstTeamRating, secondTeamRating, venue) {
+	// TO DO: Check parameters
+
 	// To suppress the advantage playing at home might give for the home team,
 	// its rating is temporarily increased by 3 points when performing the calculations.
 	var firstTeamRatingTemp = firstTeamRating;
@@ -218,6 +220,8 @@ RatingCalculator.OUTCOME_DRAW = "D";
  * @return {Array}             an array of two elements [firstTeamGainedPoints, secondTeamGainedPoints]
  */
 RatingCalculator.computeGainedPoints = function (outcome, ratingDiff) {
+	// TO DO: Check parameters
+
 	var firstTeamGainedPoints = 0;
 	var secondTeamGainedPoints = 0;
 	var dividedRatingDiff = ratingDiff / 10;
@@ -248,14 +252,14 @@ RatingCalculator.computeGainedPoints = function (outcome, ratingDiff) {
 
 
 /**
- * @namespace PULSEBALL
+ * @namespace FLYBALL
  */
-var PULSEBALL = (function (window, undefined) {
+var FLYBALL = (function (window, undefined) {
 	"use strict";
 
 	/**
 	 * This method return true if the place is the home of the specified team.
-	 * @memberof! PULSEBALL
+	 * @memberof! FLYBALL
 	 * @private
 	 * @param  {Object}  team
 	 * @param  {Object}  place
@@ -271,7 +275,7 @@ var PULSEBALL = (function (window, undefined) {
 	/**
 	 * Predict the match rating using the data i "table" and "match" and update
 	 * table with the results.
-	 * @memberof! PULSEBALL
+	 * @memberof! FLYBALL
 	 * @private
 	 * @param  {RankingsTable} table this table is updated at the end of the process
 	 * @param  {Object} match
@@ -305,24 +309,28 @@ var PULSEBALL = (function (window, undefined) {
 	return {
 		/**
 		 * Init a rankings table.
-		 * @memberOf PULSEBALL
+		 * @memberOf FLYBALL
 		 * @param  {Object} rankingsJson a valid json representation of a rankings table
 		 */
 		init: function (rankingsJson) {
+			// TO DO: Check parameters
+
 			currentTable = new RankingsTable(rankingsJson);
 		},
 		/**
 		 * Update the rankings table with the results of a match.
-		 * @memberOf PULSEBALL
+		 * @memberOf FLYBALL
 		 * @param {Object} match a valid json representation of a match
 		 */
 		addMatch: function (match) {
+			// TO DO: Check parameters
+
 			if (!currentTable) {
 				throw Error("You must call the init() function before add a match.");
 			}
 
 			// Applying the match data to a global function with the
-			// signature PULSEBALL.addMatch( match ) would create a new rankings table.
+			// signature FLYBALL.addMatch( match ) would create a new rankings table.
 			var predictedTable = predict(currentTable.clone(), match);
 			if (match.status === "C") {
 				currentTable = predictedTable;

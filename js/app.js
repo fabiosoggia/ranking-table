@@ -1,4 +1,4 @@
-var app = angular.module("PulseballApp", []);
+var app = angular.module("FlyballApp", []);
 
 app.factory("FakeMatchUpdater", ["$timeout", function($timeout) {
 	var data = {
@@ -17,7 +17,7 @@ app.factory("FakeMatchUpdater", ["$timeout", function($timeout) {
 		{ "team": { "name": "Spain", "id": 26, abbreviation: "esp" }, "pos": 7, "pts": 42 },
 		{ "team": { "name": "USA", "id": 10, abbreviation: "usa" }, "pos": 8, "pts": 41 }
 	];
-	PULSEBALL.init(table);
+	FLYBALL.init(table);
 
 	function randomElement (array) {
 		return array[Math.round(Math.random() * (array.length - 1))];
@@ -75,7 +75,7 @@ app.factory("FakeMatchUpdater", ["$timeout", function($timeout) {
 		var match = randomMatch();
 		data.lastMatch = match;
 		data.matchCount++;
-		var json = PULSEBALL.addMatch(match);
+		var json = FLYBALL.addMatch(match);
 		// deepReplace(data.results, json);
 		for (var i = json.length - 1; i >= 0; i--) {
 			var res = json[i];
@@ -95,7 +95,7 @@ app.factory("FakeMatchUpdater", ["$timeout", function($timeout) {
 app.controller("RankingsTableController", ["$scope", "FakeMatchUpdater", function ($scope, matches) {
 	$scope.table = matches;
 	$scope.stop = function () {
-		alert("I am sorry. No one can stop Pulseball players.\nThe SPORT must go on.");
+		alert("I am sorry. No one can stop Flyball players.\nThe SPORT must go on.");
 		return false;
 	};
 }]);

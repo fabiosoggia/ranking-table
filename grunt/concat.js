@@ -3,7 +3,7 @@ module.exports = {
 		separator: ";"
     },
     dist: {
-        src: ["js/pulseball.js", "js/app.js"],
+        src: ["js/flyball.js", "js/app.js"],
         dest: "dist/js/app.min.js"
     }
 };

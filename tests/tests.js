@@ -88,8 +88,8 @@ QUnit.test("RatingCalculator.computeGainedPoints()", function(assert) {
 
 });
 
-QUnit.module("PULSEBALL");
-QUnit.test("PULSEBALL.addMatch()", function(assert) {
+QUnit.module("FLYBALL");
+QUnit.test("FLYBALL.addMatch()", function(assert) {
 
 	var table = [
 		{ "team": { "name": "Australia", "id": 32 }, "pos": 1, "pts": 54.23 },
@@ -175,7 +175,7 @@ QUnit.test("PULSEBALL.addMatch()", function(assert) {
 		}
 	];
 
-	PULSEBALL.init(table);
-	deepEqual(PULSEBALL.addMatch(match), result);
+	FLYBALL.init(table);
+	deepEqual(FLYBALL.addMatch(match), result);
 
 });
